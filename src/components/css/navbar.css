@@ -1,0 +1,22 @@
+ul {
+  background: #2f2f2f;
+}
+.navbar {
+  margin-bottom: 20px;
+}
+ul.navbar li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+
+.navbar li p{
+  color: #FFF;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+
+
