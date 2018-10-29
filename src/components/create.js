@@ -30,6 +30,37 @@ class CreateCard extends Component {
     return [];
   }
 
+  messageTitle = () => {
+    this.titleCheck(this.state.title);
+    if (this.state.errors.title) {
+      return this.titleError();
+    }
+  }
+
+  titleError = () => (
+    <span className='titleError'>
+      Enter any title or make it shorter!
+    </span>
+  )
+  messageNumber = () => {
+    this.numCheck(this.state.phone_number);
+    if (this.state.errors.phone_number) {
+      return this.numberError();
+    }
+  }
+  numberError = () => (
+    <span className='titleError'>
+      Enter valid phone number! (RU format)
+    </span>
+  )
+
+  cityError = () => (
+    <span className='titleError'>
+      Choose the city!<br/>
+      If there are no options, add your city <a href='../cities'>here</a>
+    </span>  
+  )
+
   renderCities = (cities) => 
   cities.map((city) => (
     <option value={city}>
@@ -76,13 +107,18 @@ class CreateCard extends Component {
     );  
   }
 
-  errCheck = () => {
-    const{errors} = this.state;
+  titleCheck = () => {
+    const {errors} = this.state;
     if (this.state.title.length > 100 || this.state.title.length == 0) {
       errors.title = true
     } else {
       errors.title = false
     };
+  }
+
+  errCheck = () => {
+    const {errors} = this.state;
+    this.titleCheck();
     if (this.state.description.length > 300) {
       errors.description = true
     } else {
@@ -143,12 +179,14 @@ class CreateCard extends Component {
           <label className="title-label create-label">Enter the title:</label>  
           <div className="input-area">
             <input
-              placeholder="(under 100 characters)"
               value={this.state.title}
               onChange={this.handleTitle}
               className="title-input create-form-input" 
             />
           </div>  
+          {
+           this.messageTitle()
+          }
         </div>  
         <div className="description form-part">
           <label className="description-label create-label">Enter the description:</label>  
@@ -170,15 +208,16 @@ class CreateCard extends Component {
               className="phone_number-input create-form-input" 
             />
           </div>  
+        {this.messageNumber()}  
         </div>
         <div className="additional_options">
           <div className="city_selector">
             <select onChange={this.handleSelect}>
-              <option>Выберите город</option>
+              <option selected>Выберите город</option>
               {this.renderCities(cities)}       
             </select>
-            s
-          </div>  
+          </div>
+          {this.cityError()}  
         </div>
         <div className="create-button">
           <button 
