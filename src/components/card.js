@@ -22,11 +22,12 @@ export default class CardList extends Component {
 
   deleteCard = id => () => {
     let cards = this.getCardsList();
-    cards = cards.reduce((acc, card) =>{
-      if (card.id !== id) {
-        return [...acc, card];
-      }
-      return acc;
+    cards = cards.reduce(
+      (acc, card) =>{
+        if (card.id !== id) {
+          return [...acc, card];
+        }
+        return acc;
     }, []);
     this.setState({cards});
     let cardlist = JSON.stringify(cards);

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 import "./css/create.css";
 
 class CreateCard extends Component {
@@ -115,7 +116,7 @@ class CreateCard extends Component {
       lastCardId = cardsList[cardsList.length - 1].id;
     }
     localStorage.setItem('cards', JSON.stringify(
-      [...cardsList, {title, description, phone_number, city, id: lastCardId + 1}]
+      [{title, description, phone_number, city, id: lastCardId + 1}, ...cardsList]
     ));
     this.setState({
       title: '',
@@ -170,12 +171,15 @@ class CreateCard extends Component {
             />
           </div>  
         </div>
-        <div className="city_selector">
-          <select onChange={this.handleSelect}>
-            <option>Выберите город</option>
-            {this.renderCities(cities)}       
-          </select>
-        </div>  
+        <div className="additional_options">
+          <div className="city_selector">
+            <select onChange={this.handleSelect}>
+              <option>Выберите город</option>
+              {this.renderCities(cities)}       
+            </select>
+            s
+          </div>  
+        </div>
         <div className="create-button">
           <button 
             disabled={this.isFormValid(errors, city)}
