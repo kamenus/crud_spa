@@ -93,7 +93,7 @@ class AddCity extends Component {
       <div className='citiesForm'> 
         <div className='citiesContainer'>
           <div className='citiesListWrap'>
-            <span className='citiesListHeader'>Список доступных городов:</span>
+            <span className='citiesListHeader'>List of availible cities:</span>
             <ul className='citiesList'>
               {this.renderCities(cities)}
             </ul>

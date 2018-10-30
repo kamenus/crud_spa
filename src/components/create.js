@@ -103,7 +103,7 @@ class CreateCard extends Component {
   isFormValid = (errors, city) => {
     this.errCheck(errors);
     return (
-      errors.title || errors.description || errors.phone_number || city == "" || city == "Выберите город"  
+      errors.title || errors.description || errors.phone_number || city == "" || city == "Choose a city"  
     );  
   }
 
@@ -213,7 +213,7 @@ class CreateCard extends Component {
         <div className="additional_options">
           <div className="city_selector">
             <select onChange={this.handleSelect}>
-              <option selected>Выберите город</option>
+              <option selected>Choose a city</option>
               {this.renderCities(cities)}       
             </select>
           </div>
