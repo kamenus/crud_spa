@@ -73,10 +73,9 @@ class AddCity extends Component {
     localStorage.setItem('cities', cityList);  
   }
 
-  renderCities = (cities) => {
-    let key = -1;  
+  renderCities = (cities) => 
     cities.map((city) => (
-        <li key={key++} className='cityName'>
+        <li className='cityName'>
           {city} {'  '}
           <button
             className='cityDeleteButton'
@@ -87,7 +86,6 @@ class AddCity extends Component {
         </li>
     )
   )
-  }
 
   render() {
     const {error, cities, name} = this.state

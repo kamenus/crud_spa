@@ -61,14 +61,12 @@ class CreateCard extends Component {
     </span>  
   )
 
-  renderCities = (cities) => {
-    let key = -1;  
+  renderCities = (cities) => 
     cities.map((city) => (
-      <option key={key++} value={city}>
+      <option value={city}>
         {city}
       </option>
     ))
-    }
 
   numCheck = (number) => {
     const {errors} = this.state;
