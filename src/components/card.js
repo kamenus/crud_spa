@@ -39,8 +39,8 @@ export default class CardList extends Component {
     <div className="app__card">  
       <h3 className="app__card__title">{card.title}</h3>
       <p className="app__card__description">{card.description}</p>
-      <p className="app__card__number">{card.phone_number}</p>
-      <p className="app__card__city">{card.city}</p>
+      <p className="app__card__number">Phone number:{' '}{card.phone_number}</p>
+      <p className="app__card__city">City:{' '}{card.city}</p>
       <button 
         className="app__card__delete"
         onClick={ this.deleteCard(card.id)}
