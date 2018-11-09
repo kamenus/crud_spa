@@ -109,21 +109,21 @@ class CreateCard extends Component {
   titleCheck = () => {
     const {errors} = this.state;
     if (this.state.title.length > 100 || this.state.title.length == 0) {
-      errors.title = true
+      errors.title = true;
     } else {
       errors.title = false
     };
   }
 
   errCheck = () => {
-    const {errors} = this.state;
+    const {errors, phone_number} = this.state;
     this.titleCheck();
     if (this.state.description.length > 300) {
       errors.description = true
     } else {
       errors.description = false
     };
-    let num = this.state.phone_number;
+    let num = phone_number;
     this.numCheck(num);
   }
 
@@ -173,44 +173,44 @@ class CreateCard extends Component {
       city,
     } = this.state;
     return(
-      <div className="create-form">
-        <div className="title form-part">
-          <label className="title-label create-label">Enter the title:</label>  
-          <div className="input-area">
+      <div className="createForm">
+        <div className="title formPart">
+          <label className="titleLabel createLabel">Enter the title:</label>  
+          <div className="inputArea">
             <input
               value={this.state.title}
               onChange={this.handleTitle}
-              className="title-input create-form-input" 
+              className="titleInput createFormInput" 
             />
           </div>  
           {
            this.messageTitle()
           }
         </div>  
-        <div className="description form-part">
-          <label className="description-label create-label">Enter the description:</label>  
-          <div className="input-area">
+        <div className="description formPart">
+          <label className="descriptionLabel createLabel">Enter the description:</label>  
+          <div className="inputArea">
             <textarea 
               value={this.state.description}
               onChange={this.handleDescription}
-              className="description-input create-form-input" 
+              className="descriptionInput createFormInput" 
             />
           </div>  
         </div>  
-        <div className="phone_number form-part">
-          <label className="phone_number-label create-label">Enter the phone number:</label>  
-          <div className="input-area">
+        <div className="phoneNumber formPart">
+          <label className="phoneNumberLabel createLabel">Enter the phone number:</label>  
+          <div className="inputArea">
             <input
               type="tel" 
               value={this.state.phone_number}
               onChange={this.handlePhoneNum}
-              className="phone_number-input create-form-input" 
+              className="phoneNumberInput createFormInput" 
             />
           </div>  
         {this.messageNumber()}  
         </div>
-        <div className="additional_options">
-          <div className="city_selector">
+        <div className="additionalOptions">
+          <div className="citySelector">
             <select onChange={this.handleSelect}>
               <option>Choose a city</option>
               {this.renderCities(cities)}       
@@ -218,7 +218,7 @@ class CreateCard extends Component {
           </div>
           {this.cityError()}  
         </div>
-        <div className="create-button">
+        <div className="createutton">
           <button 
             disabled={this.isFormValid(errors, city)}
             onClick={this.saveCard}

@@ -36,13 +36,13 @@ export default class CardList extends Component {
 
   renderCards = (cards) => 
   cards.map((card) => (
-    <div className="app__card">  
-      <h3 className="app__card__title">{card.title}</h3>
-      <p className="app__card__description">{card.description}</p>
-      <p className="app__card__number">Phone number:{' '}{card.phone_number}</p>
-      <p className="app__card__city">City:{' '}{card.city}</p>
+    <div className="appCard">  
+      <h3 className="appCardTitle">{card.title}</h3>
+      <p className="appCardDescription">{card.description}</p>
+      <p className="appCardNumber">Phone number:{' '}{card.phone_number}</p>
+      <p className="appCardCity">City:{' '}{card.city}</p>
       <button 
-        className="app__card__delete"
+        className="appCardDelete"
         onClick={ this.deleteCard(card.id)}
       >
         Delete
@@ -51,7 +51,7 @@ export default class CardList extends Component {
   ))
 
   renderNoCardsWarning = () => (
-    <div className="" style={{color: "White"}}>
+    <div style={{color: "White"}}>
       <p>
         No cards.
       </p>

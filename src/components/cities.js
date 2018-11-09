@@ -30,7 +30,6 @@ class AddCity extends Component {
       this.setState({error: true});
       this.cityWarning()
     }
-    // this.setState({name: ''})
   }
 
   getCityList = () => {
